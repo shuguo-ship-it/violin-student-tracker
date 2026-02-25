@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Violin Lesson Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Violin Student Lesson Tracker</h1>
+        <p>Track each student's lesson details quickly.</p>
+      </header>
+
+      <section class="card" aria-labelledby="add-lesson-heading">
+        <h2 id="add-lesson-heading">Add Lesson</h2>
+        <form id="lesson-form" novalidate>
+          <div class="field-grid">
+            <label>
+              Student Name
+              <input type="text" id="student-name" name="studentName" required />
+            </label>
+
+            <label>
+              Lesson Date
+              <input type="date" id="lesson-date" name="lessonDate" required />
+            </label>
+
+            <label>
+              Lesson Duration (minutes)
+              <input
+                type="number"
+                id="lesson-duration"
+                name="lessonDuration"
+                min="1"
+                required
+              />
+            </label>
+
+            <label>
+              Remaining Lessons
+              <input
+                type="number"
+                id="remaining-lessons"
+                name="remainingLessons"
+                min="0"
+                required
+              />
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Add Lesson</button>
+            <p id="form-message" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="lesson-list-heading">
+        <h2 id="lesson-list-heading">Lesson Records</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Date</th>
+                <th>Duration</th>
+                <th>Remaining</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="lesson-list"></tbody>
+          </table>
+          <p id="empty-state">No lessons added yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
